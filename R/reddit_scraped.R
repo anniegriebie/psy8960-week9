@@ -42,3 +42,17 @@ rstats_tbl <- tibble(
   comments
 )
 
+
+#Visualization
+#uses ggplot to display scatterplot
+ggplot(rstats_tbl, aes(x=upvotes, y=comments))+
+  geom_smooth()+
+  geom_point()
+
+#Analysis
+#running correlation using cor.test
+correlationWEB <- cor.test(rstats_tbl$upvotes, rstats_tbl$comments)
+
+#Publication 
+#displays the correlation to specifcations using the object created in previous step setting the correct number of decimal places. uses past 0 because 
+paste0("The correlation between upvotes and comments was r", "(", correlationWEB$parameter[[1]] ,") = ",round(correlationWEB$estimate,2), ", p = ",  round(correlationWEB$p.value,2), ". This test was not statistically significant.")
