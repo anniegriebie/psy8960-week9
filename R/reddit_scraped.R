@@ -33,3 +33,12 @@ comments <- comments_text%>%
   str_extract(pattern = "\\d+") %>%
   as.numeric() %>%
   replace_na(0)
+
+
+#putting elements into tbl and converting upvotes and comments into text
+rstats_tbl <- tibble(
+  post,
+  upvotes,
+  comments
+)
+
