@@ -24,7 +24,7 @@ ggplot(rstats_tbl, aes(x=upvotes, y=comments))+
   geom_point()
 
 ## Analysis
-#uses cor.test to calculate the correlation between upvotes and comements, creates an object that can be called later for displaying the publication data
+#uses cor.test to calculate the correlation between upvotes and comments, creates an object that can be called later for displaying the publication data
 correlationAPI <- cor.test(rstats_tbl$upvotes, rstats_tbl$comments)
 
 ## Publication
