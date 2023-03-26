@@ -28,6 +28,7 @@ ggplot(rstats_tbl, aes(x=upvotes, y=comments))+
 correlationAPI <- cor.test(rstats_tbl$upvotes, rstats_tbl$comments)
 
 #Publication
+"The correlation between upvotes and comments was r(23) = 0.34, p = 0.1. This test was not statistically significant."
 #displays the correlation to specifcations using the object created in previous step, setting the correct number of decimal places. uses paste0 because 
 paste0("The correlation between upvotes and comments was r", "(", correlationAPI$parameter[[1]] ,") = ",round(correlationAPI$estimate,2), ", p = ",  round(correlationAPI$p.value,2), ". This test was not statistically significant.")
 
