@@ -6,3 +6,12 @@ library(jsonlite)
 # Data Import and Cleaning
 #used fromJSON to read in content from reddit link because listed as a json file in reddit api documentation. 
 rstats_list <- fromJSON("https://www.reddit.com/r/rstats/.json", flatten = TRUE)
+
+#looking at rstats list, the title, upvotes and comments are listed as element children, extract
+rstats_original_tbl <- rstats_list$data$children
+
+#create new tbl selecting the elements we need, used select to pick the specific variables
+rstats_tbl <- rstats_original_tbl %>%
+  select(post = data.title, 
+         upvotes = data.ups,
+         comments = data.num_comments)
