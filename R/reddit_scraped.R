@@ -1,8 +1,8 @@
-#Script Settings and Resources
+## Script Settings and Resources
 library(tidyverse)
 library(rvest)
 
-#Data Import and Cleaning
+## Data Import and Cleaning
 #using read_html to read in file
 rstats_html <- read_html("https://old.reddit.com/r/rstats/")
 
@@ -43,17 +43,17 @@ rstats_tbl <- tibble(
 )
 
 
-#Visualization
+## Visualization
 #uses ggplot to display scatterplot
 ggplot(rstats_tbl, aes(x=upvotes, y=comments))+
   geom_smooth()+
   geom_point()
 
-#Analysis
+## Analysis
 #running correlation using cor.test
 correlationWEB <- cor.test(rstats_tbl$upvotes, rstats_tbl$comments)
 
-#Publication 
+## Publication 
 #"The correlation between upvotes and comments was r(23) = 0.37, p = 0.07. This test was not statistically significant."
 #displays the correlation to specifcations using the object created in previous step setting the correct number of decimal places. uses past 0 because 
 paste0("The correlation between upvotes and comments was r", "(", correlationWEB$parameter[[1]] ,") = ",round(correlationWEB$estimate,2), ", p = ",  round(correlationWEB$p.value,2), ". This test was not statistically significant.")
